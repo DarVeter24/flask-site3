@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Run a one-line script
+        shell: bash
+        run: |
+          cd /home/hagal/cryptons46
+          git pull
+          ansible-playbook p_vagrant_docker_nginx_flask.yml
